@@ -1,1 +1,1 @@
-# Restaurant-Rating-Predictor
+# Restaurant-Rating-Prediction

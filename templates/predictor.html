@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resturant Rating Predictor</title>
+    <link rel="stylesheet" href="../static/style2.css" />
+  </head>
+  <!-- <body onload="addOptions()"> -->
+  <body>
+    <div class="hero">
+      <video id="vid1" type="mp4" autoplay loop muted plays-inline>
+        <source src="../static/vid2.mp4" />
+      </video>
+    </div>
+
+    <div class="main">
+      <nav>
+        <div class="logo">
+          <a href="/" class="disabled"
+            ><img src="../static/logo2.png" alt="logo" class="logo-img"
+          /></a>
+        </div>
+
+        <ul>
+          <li><a href="/" target="_self">Home</a></li>
+          <li><a href="/predictor" class="active">Predictor</a></li>
+          <li><a href="/about">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="heading">
+        <h1 id="title"><center>Welcome to the Predictor</center></h1>
+        <p id="desc" Enter the details to get the Rating></p>
+        <p id="note">
+          Note: Hold down the Ctrl (windows) or Command (Mac) button to select
+          multiple options in Resturants Type and Cuisines.
+        </p>
+      </div>
+
+      <div class="form1">
+        <h2 id="form-head">Predictor Form</h2>
+        <hr id="hr1" />
+
+        <form id="predictorForm" method="POST" action="/predictor">
+          <div class="fields">
+            <div class="r1">
+              <!--CUISINES-->
+              <label for="C" id="Cuisines">Cuisines</label>
+              <select name="Cuisines" id="C" required>
+                <option value="null">Select-Cuisines</option>
+                <option value="African, Burger">African, Burger</option>
+                <option value="American, Asian, European, North Indian">
+                  American, Asian, European, North Indian
+                </option>
+                <option
+                  value="American, Asian, Continental, North Indian, South Indian, Chinese"
+                >
+                  American, Asian, Continental, North Indian, South Indian,
+                  Chinese
+                </option>
+              </select>
+            </div>
+
+            <div class="r2">
+              <!--ONLINE ORDER-->
+              <label for="OO" id="Online_order">Online Order Facility</label>
+              <select name="online_order" id="OO" required>
+                <option>-Select-</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+
+              <!--BOOK TABLE-->
+              <label for="BT" id="BOOK-Table">Book Table Facility</label>
+              <select name="book_table" id="BT" required>
+                <option>-Select-</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+
+            <div class="r3">
+              <!--LOCATION-->
+              <label for="L" id="Location">Location</label>
+              <select name="Location" id="L" required>
+                <option value="null">Select-location</option>
+                <option value="BTM">BTM</option>
+              </select>
+
+              <!--COST FOR TWO PEOPLE-->
+              <label for="AC" id="Cost">Cost For Two People</label>
+              <input
+                id="AC"
+                type="number"
+                name="approx_cost"
+                min="300"
+                placeholder="Enter Cost -"
+                required
+              />
+            </div>
+          </div>
+
+          <div id="submit" class="submit">
+            <!-- <button id="Submit" type="Submit">Submit</button> -->
+             <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <!--PREDICTOR WINDOW-->
+      <div class="pred">
+        <p id="pred-text">Expected Rating</p>
+        <hr id="hr2" />
+        <p id="rating">{{prediction_text}}</p>
+      </div>
+
+      <footer>
+        <p id="end-text">Created by Shrey Choudhary</p>
+      </footer>
+    </div>
+  </body>
+</html>
